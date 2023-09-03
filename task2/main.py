@@ -1,6 +1,5 @@
 from typing import DefaultDict
 import argparse
-from colorama import Fore
 from datetime import datetime
 import os
 
@@ -12,7 +11,7 @@ file_path = os.path.abspath(args['file'])
 
 # ВЫход если путь не корректный
 if not os.path.exists(file_path):
-    print(f"{Fore.RED}[ERROR]{Fore.RESET} File {file_path} doesn't exist")
+    print(f"[ERROR] File {file_path} doesn't exist")
     exit(1)
 
 # Задаем промежутки допустимых кодов знаков
@@ -45,8 +44,6 @@ def main() -> dict[str,int]:
     return dict(letters)
 
 if __name__ == "__main__":
-    start = datetime.now()
     print(f"Letters in file {file_path}\n")
     for letter, count in main().items():
         print(f"{letter} : {count}")
-    print(f"\nExecution time: {(datetime.now()-start).total_seconds()} sec.")
